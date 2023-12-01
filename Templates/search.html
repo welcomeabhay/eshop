@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}search result{% endblock %}
+
+{% block content %}
+<h1>{{qr}}</h1>
+{% if pr %}
+   {% for word in pr %}
+      <a>{{word.all_name}}</a><br>
+      <a>{{word.description}}</a>
+   {% endfor %}
+{% else %}
+<h1 style="color:red;">No Search Results Found....!!</h1>
+{% endif %}
+
+{% endblock %}

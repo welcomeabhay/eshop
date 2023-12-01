@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}Category{% endblock %}
+
+
+{% block hero %}
+<br>
+
+
+<br>
+
+
+<br>
+
+<br>
+
+<div class="row">
+			{% for c in cato %}
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{% url 'scategory_page' c.name %}"><img src="{{c.img.url}}" height="200px"  alt=""></a>
+					</div>
+					<h3>{{c.name}}</h3>
+<!--					<p class="product-price"><span>Per piece</span> {{w.price}} </p>-->
+<!--					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>-->
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+
+{% endblock %}

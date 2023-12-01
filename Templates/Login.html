@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h1  style="font-family:cursive; color:Tomato;text-align:center">LOGIN</h1>
+         {% for msg in messages %}
+         <div class="alert alert-info" role="alert">{{msg}}</div>
+         {% endfor %}
+         <form  class="form-control" method="post" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label class="form-label">User name</label>
+            <input type="text" name="uname" class="form-control">
+            <br>
+            <label class="form-label">Password</label>
+            <input type="password" name="psd" class="form-control"><br>
+            <div style="text-align:center"><button type="submit" style="color:success">login</button></div>
+
+
+         </form>
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

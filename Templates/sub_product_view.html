@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}sub_p_views{% endblock %}
+
+{% block hero %}
+<br>
+
+
+<br>
+
+
+<br>
+
+<br>
+
+
+<div class="row">
+			{% for p in sub %}
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{% url 'singleproduct' p.all_name %}"><img src="{{p.img.url}}" height="300px" alt=""></a>
+					</div>
+					<h3>{{p.all_name}}</h3>
+					<p class="product-price"><span>Per piece</span> {{p.price}} </p>
+					<a href="{% url 'add_cart' p.id %}" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+
+{% endblock %}
