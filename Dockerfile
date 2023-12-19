@@ -16,7 +16,7 @@ WORKDIR /DockerHome
 #install dependencies
 RUN pip install --upgrade pip
 
-ADD requirement.txt . 
+ADD requirement.txt /app/ 
 RUN pip install -r requirement.txt 
 
 # copy project
