@@ -1,28 +1,10 @@
-#base image
-From python:3.9
+FROM python:3
 
-#set environment variable
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+RUN pip install django==4.1
 
-#set work directory
-RUN mkdir /DockerHome
+COPY . .
 
-#where your code lives
-WORKDIR /DockerHome
+RUN python manage.py migrate
 
-
-
-#install dependencies
-RUN pip install --upgrade pip
-
-ADD requirement.txt /app/ 
-RUN pip install -r requirement.txt 
-
-# copy project
-ADD ./ /DockerHome/
-
-CMD ["python","manage.py","runserver"]
-
-#port for the app
 EXPOSE 8000
+CMD ["python", "manage.py","runserver","0.0.0.0:8000"]
