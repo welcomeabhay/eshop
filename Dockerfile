@@ -1,7 +1,6 @@
 FROM python:3
 
 RUN pip install django==4.1
-RUN pip install mysqlclient
 
 COPY . .
 
